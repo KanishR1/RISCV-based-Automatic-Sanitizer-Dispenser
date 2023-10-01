@@ -7,6 +7,9 @@ The project's goal is to design an automatic sanitizer dispenser utilizing a spe
 ## Working
 An infrared sensor is employed to detect the presence of a hand. Upon hand detection, the solenoid valve is activated. The sanitizer is directed through the flow sensor via the open solenoid valve, allowing the flow sensor to calculate the quantity of sanitizer dispensed. The system is configured to accommodate a sanitizer bottle with a capacity of half a liter. Upon detecting the dispensing of half a liter, the flow sensor triggers a buzzer, signaling the need for a sanitizer bottle refill.
 
+## Block Diagram
+![bd](bd.png)
+
 ## C Code
 ```
 #include<stdio.h>
