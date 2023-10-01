@@ -9,7 +9,7 @@ An infrared sensor is employed to detect the presence of a hand. Upon hand detec
 
 ## Circuit
 This is not the depiction of the final circuit.
-~[ckt](ckt_depict.png)
+![ckt](ckt_depict.png)
 ## Block Diagram
 ![blockd](bda.png)
 
