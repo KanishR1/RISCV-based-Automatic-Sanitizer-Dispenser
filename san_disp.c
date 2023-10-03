@@ -1,5 +1,3 @@
-#include<stdio.h>
-
 void read();
 void operate(int);
 void bottle_status();
@@ -15,11 +13,8 @@ int reset_button = 0;
 float water_used=0;
 
 int main()
-{
-    while(!led_op && !buzzer && !reset_button){
-        read();
-
-    }
+{ 
+    //reset = digital_read(0);
     if(reset_button)
     {
         solenoid_valve_op = 0;
@@ -28,6 +23,16 @@ int main()
         counter_h = 0;
         counter_l = 0;
         water_used = 0;
+        //digital_write(4,solenoid_valve_op);
+        //digital_write(5,led_op);
+        //digital_write(6,buzzer);
+    }
+    else
+    {
+    while(!led_op && !buzzer && !reset_button){
+        read();
+
+    }
     }
     return 0;
 }
@@ -35,6 +40,7 @@ int main()
 
 void read()
 {
+    //ir_sen_ip = digital_read(1);
     operate(ir_sen_ip);
 }
 
@@ -43,14 +49,15 @@ void operate(int ir_value)
     if(ir_value)
     {
         solenoid_valve_op = 1;
+        //digital_write(4,solenoid_valve_op);
         counter_h++;
-        printf("Solenoid Status ON \n");
         bottle_status();
         
 
     }
     else {
         solenoid_valve_op = 0;
+        //digital_write(4,solenoid_valve_op);
         counter_l++;
     }
 
@@ -67,6 +74,9 @@ void bottle_status()
     {
         led_op = 1;
         buzzer = 1;
-        printf("Bottle Empty\n");
+        //digital_write(5,led_op);
+        //digital_write(6,buzzer);
+        
+        
     }
 }
