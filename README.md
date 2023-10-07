@@ -36,7 +36,7 @@ int main()
     solenoid_reg = solenoid_valve_op*4;
     led_reg = led_op*8;
     buzzer_reg = buzzer*16;
-    asm(
+    asm volatile(
 	"or x30, x30, %0\n\t"
 	"or x30, x30, %1\n\t"
 	"or x30, x30, %2\n\t" 
@@ -44,7 +44,7 @@ int main()
 		
     while(1){
     //reset = digital_read(0);
-    	asm(
+    	asm volatile(
 	"andi %0, x30, 1\n\t"
 	:"=r"(reset_button));
     if(reset_button)
@@ -61,7 +61,7 @@ int main()
         solenoid_reg = solenoid_valve_op*4;
         led_reg = led_op*8;
         buzzer_reg = buzzer*16;
-        asm(
+        asm volatile(
 	"or x30, x30,%0 \n\t"
 	"or x30, x30,%1 \n\t"
 	"or x30, x30,%2 \n\t" 
@@ -83,7 +83,7 @@ void read()
 {
    int ir_sen_ip_reg;
     //ir_sen_ip = digital_read(1);
-    asm(
+    asm volatile(
 	"andi %0, x30, 2\n\t"
 	:"=r"(ir_sen_ip_reg));
     ir_sen_ip = ir_sen_ip_reg/2;
@@ -98,7 +98,7 @@ void operate(int ir_value)
     	
         solenoid_valve_op = 1;
         solenoid_reg = solenoid_valve_op*4;
-        asm(
+        asm volatile(
 	"or x30, x30,%0 \n\t"
 	:"=r"(solenoid_reg));
         //digital_write(4,solenoid_valve_op);
@@ -111,7 +111,7 @@ void operate(int ir_value)
         solenoid_valve_op = 0;
         //digital_write(4,solenoid_valve_op);
         solenoid_reg = solenoid_valve_op*4;
-        asm(
+        asm volatile(
 	"or x30, x30,%0 \n\t"
 	:"=r"(solenoid_reg));
         counter_l++;
@@ -137,7 +137,7 @@ void bottle_status()
         led_reg = led_op*8;
         buzzer_reg = buzzer*16;
         
-        asm(
+        asm volatile(
 	"or x30, x30, %0\n\t"
 	"or x30, x30, %1\n\t" 
 	:"=r"(led_reg),	"=r"(buzzer_reg));
