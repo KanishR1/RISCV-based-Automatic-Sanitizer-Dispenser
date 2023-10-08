@@ -167,7 +167,8 @@ void bottle_status()
     }
 }
 ```
-
+## GCC Compiler Working
+![gcc](gcc_working.png)
 ## Assembly code conversion
 
 Compile the c program using RISCV-V GNU Toolchain and dump the assembly code into water_level_assembly.txt using the below commands.
