@@ -1,6 +1,11 @@
 void read();
 void operate(int);
 void bottle_status();
+int __divsi3(int , int );
+double __floatsidf(int );
+double __divdf3(double , double );
+int __fixdfsi(double );
+double __muldf3(double , double);
 
 int ir_sen_ip;
 int solenoid_valve_op = 0;
@@ -11,6 +16,7 @@ int counter_h = 0;
 int counter_l = 0;
 int reset_button = 0;
 int water_used=0;
+
 
 int main()
 { 
@@ -69,6 +75,13 @@ int main()
     return 0;
 }
 
+// Implementation for __muldf3
+double __muldf3(double a, double b) {
+    // Your implementation here
+    return a * b;
+}
+
+
 
 void read()
 {
@@ -119,6 +132,28 @@ void operate(int ir_value)
 
 }
 
+// Implementations for missing functions
+int __divsi3(int a, int b) {
+    // Your implementation here
+    return a / b;
+}
+
+double __floatsidf(int a) {
+    // Your implementation here
+    return (double)a;
+}
+
+double __divdf3(double a, double b) {
+    // Your implementation here
+    return a / b;
+}
+
+int __fixdfsi(double a) {
+    // Your implementation here
+    return (int)a;
+}
+
+
 void bottle_status()
 {
     int time = counter_h + counter_l;
@@ -148,3 +183,4 @@ void bottle_status()
         
     }
 }
+

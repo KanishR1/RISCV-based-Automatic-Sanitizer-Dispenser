@@ -1,424 +1,296 @@
 
-out:     file format elf32-littleriscv
+out22:     file format elf32-littleriscv
 
 
 Disassembly of section .text:
 
-00000000 <main>:
-   0:	fe010113          	add	sp,sp,-32
-   4:	00112e23          	sw	ra,28(sp)
-   8:	00812c23          	sw	s0,24(sp)
-   c:	02010413          	add	s0,sp,32
-  10:	000007b7          	lui	a5,0x0
-			10: R_RISCV_HI20	solenoid_valve_op
-			10: R_RISCV_RELAX	*ABS*
-  14:	0007a783          	lw	a5,0(a5) # 0 <main>
-			14: R_RISCV_LO12_I	solenoid_valve_op
-			14: R_RISCV_RELAX	*ABS*
-  18:	00279793          	sll	a5,a5,0x2
-  1c:	fef42623          	sw	a5,-20(s0)
-  20:	000007b7          	lui	a5,0x0
-			20: R_RISCV_HI20	led_op
-			20: R_RISCV_RELAX	*ABS*
-  24:	0007a783          	lw	a5,0(a5) # 0 <main>
-			24: R_RISCV_LO12_I	led_op
-			24: R_RISCV_RELAX	*ABS*
-  28:	00379793          	sll	a5,a5,0x3
-  2c:	fef42423          	sw	a5,-24(s0)
-  30:	000007b7          	lui	a5,0x0
-			30: R_RISCV_HI20	buzzer
-			30: R_RISCV_RELAX	*ABS*
-  34:	0007a783          	lw	a5,0(a5) # 0 <main>
-			34: R_RISCV_LO12_I	buzzer
-			34: R_RISCV_RELAX	*ABS*
-  38:	00479793          	sll	a5,a5,0x4
-  3c:	fef42223          	sw	a5,-28(s0)
-  40:	fec42783          	lw	a5,-20(s0)
-  44:	fe842703          	lw	a4,-24(s0)
-  48:	fe442683          	lw	a3,-28(s0)
-  4c:	00ff6f33          	or	t5,t5,a5
-  50:	00ef6f33          	or	t5,t5,a4
-  54:	00df6f33          	or	t5,t5,a3
+00010094 <main>:
+   10094:	fe010113          	add	sp,sp,-32
+   10098:	00112e23          	sw	ra,28(sp)
+   1009c:	00812c23          	sw	s0,24(sp)
+   100a0:	02010413          	add	s0,sp,32
+   100a4:	000117b7          	lui	a5,0x11
+   100a8:	4ec7a783          	lw	a5,1260(a5) # 114ec <solenoid_valve_op>
+   100ac:	00279793          	sll	a5,a5,0x2
+   100b0:	fef42623          	sw	a5,-20(s0)
+   100b4:	80c1a783          	lw	a5,-2036(gp) # 114f4 <led_op>
+   100b8:	00379793          	sll	a5,a5,0x3
+   100bc:	fef42423          	sw	a5,-24(s0)
+   100c0:	8101a783          	lw	a5,-2032(gp) # 114f8 <buzzer>
+   100c4:	00479793          	sll	a5,a5,0x4
+   100c8:	fef42223          	sw	a5,-28(s0)
+   100cc:	fec42783          	lw	a5,-20(s0)
+   100d0:	fe842703          	lw	a4,-24(s0)
+   100d4:	fe442683          	lw	a3,-28(s0)
+   100d8:	00ff6f33          	or	t5,t5,a5
+   100dc:	00ef6f33          	or	t5,t5,a4
+   100e0:	00df6f33          	or	t5,t5,a3
+   100e4:	001f7713          	and	a4,t5,1
+   100e8:	80e1ae23          	sw	a4,-2020(gp) # 11504 <reset_button>
+   100ec:	81c1a783          	lw	a5,-2020(gp) # 11504 <reset_button>
+   100f0:	06078463          	beqz	a5,10158 <main+0xc4>
+   100f4:	000117b7          	lui	a5,0x11
+   100f8:	4e07a623          	sw	zero,1260(a5) # 114ec <solenoid_valve_op>
+   100fc:	8001a623          	sw	zero,-2036(gp) # 114f4 <led_op>
+   10100:	8001a823          	sw	zero,-2032(gp) # 114f8 <buzzer>
+   10104:	8001aa23          	sw	zero,-2028(gp) # 114fc <counter_h>
+   10108:	8001ac23          	sw	zero,-2024(gp) # 11500 <counter_l>
+   1010c:	8201a023          	sw	zero,-2016(gp) # 11508 <water_used>
+   10110:	000117b7          	lui	a5,0x11
+   10114:	4ec7a783          	lw	a5,1260(a5) # 114ec <solenoid_valve_op>
+   10118:	00279793          	sll	a5,a5,0x2
+   1011c:	fef42623          	sw	a5,-20(s0)
+   10120:	80c1a783          	lw	a5,-2036(gp) # 114f4 <led_op>
+   10124:	00379793          	sll	a5,a5,0x3
+   10128:	fef42423          	sw	a5,-24(s0)
+   1012c:	8101a783          	lw	a5,-2032(gp) # 114f8 <buzzer>
+   10130:	00479793          	sll	a5,a5,0x4
+   10134:	fef42223          	sw	a5,-28(s0)
+   10138:	fec42783          	lw	a5,-20(s0)
+   1013c:	fe842703          	lw	a4,-24(s0)
+   10140:	fe442683          	lw	a3,-28(s0)
+   10144:	00ff6f33          	or	t5,t5,a5
+   10148:	00ef6f33          	or	t5,t5,a4
+   1014c:	00df6f33          	or	t5,t5,a3
+   10150:	f95ff06f          	j	100e4 <main+0x50>
+   10154:	074000ef          	jal	101c8 <read>
+   10158:	80c1a783          	lw	a5,-2036(gp) # 114f4 <led_op>
+   1015c:	f80794e3          	bnez	a5,100e4 <main+0x50>
+   10160:	8101a783          	lw	a5,-2032(gp) # 114f8 <buzzer>
+   10164:	f80790e3          	bnez	a5,100e4 <main+0x50>
+   10168:	81c1a783          	lw	a5,-2020(gp) # 11504 <reset_button>
+   1016c:	fe0784e3          	beqz	a5,10154 <main+0xc0>
+   10170:	f75ff06f          	j	100e4 <main+0x50>
 
-00000058 <.L6>:
-  58:	001f7713          	and	a4,t5,1
-  5c:	000007b7          	lui	a5,0x0
-			5c: R_RISCV_HI20	reset_button
-			5c: R_RISCV_RELAX	*ABS*
-  60:	00e7a023          	sw	a4,0(a5) # 0 <main>
-			60: R_RISCV_LO12_S	reset_button
-			60: R_RISCV_RELAX	*ABS*
-  64:	000007b7          	lui	a5,0x0
-			64: R_RISCV_HI20	reset_button
-			64: R_RISCV_RELAX	*ABS*
-  68:	0007a783          	lw	a5,0(a5) # 0 <main>
-			68: R_RISCV_LO12_I	reset_button
-			68: R_RISCV_RELAX	*ABS*
-  6c:	08078463          	beqz	a5,f4 <.L4>
-			6c: R_RISCV_BRANCH	.L4
-  70:	000007b7          	lui	a5,0x0
-			70: R_RISCV_HI20	solenoid_valve_op
-			70: R_RISCV_RELAX	*ABS*
-  74:	0007a023          	sw	zero,0(a5) # 0 <main>
-			74: R_RISCV_LO12_S	solenoid_valve_op
-			74: R_RISCV_RELAX	*ABS*
-  78:	000007b7          	lui	a5,0x0
-			78: R_RISCV_HI20	led_op
-			78: R_RISCV_RELAX	*ABS*
-  7c:	0007a023          	sw	zero,0(a5) # 0 <main>
-			7c: R_RISCV_LO12_S	led_op
-			7c: R_RISCV_RELAX	*ABS*
-  80:	000007b7          	lui	a5,0x0
-			80: R_RISCV_HI20	buzzer
-			80: R_RISCV_RELAX	*ABS*
-  84:	0007a023          	sw	zero,0(a5) # 0 <main>
-			84: R_RISCV_LO12_S	buzzer
-			84: R_RISCV_RELAX	*ABS*
-  88:	000007b7          	lui	a5,0x0
-			88: R_RISCV_HI20	counter_h
-			88: R_RISCV_RELAX	*ABS*
-  8c:	0007a023          	sw	zero,0(a5) # 0 <main>
-			8c: R_RISCV_LO12_S	counter_h
-			8c: R_RISCV_RELAX	*ABS*
-  90:	000007b7          	lui	a5,0x0
-			90: R_RISCV_HI20	counter_l
-			90: R_RISCV_RELAX	*ABS*
-  94:	0007a023          	sw	zero,0(a5) # 0 <main>
-			94: R_RISCV_LO12_S	counter_l
-			94: R_RISCV_RELAX	*ABS*
-  98:	000007b7          	lui	a5,0x0
-			98: R_RISCV_HI20	water_used
-			98: R_RISCV_RELAX	*ABS*
-  9c:	0007a023          	sw	zero,0(a5) # 0 <main>
-			9c: R_RISCV_LO12_S	water_used
-			9c: R_RISCV_RELAX	*ABS*
-  a0:	000007b7          	lui	a5,0x0
-			a0: R_RISCV_HI20	solenoid_valve_op
-			a0: R_RISCV_RELAX	*ABS*
-  a4:	0007a783          	lw	a5,0(a5) # 0 <main>
-			a4: R_RISCV_LO12_I	solenoid_valve_op
-			a4: R_RISCV_RELAX	*ABS*
-  a8:	00279793          	sll	a5,a5,0x2
-  ac:	fef42623          	sw	a5,-20(s0)
-  b0:	000007b7          	lui	a5,0x0
-			b0: R_RISCV_HI20	led_op
-			b0: R_RISCV_RELAX	*ABS*
-  b4:	0007a783          	lw	a5,0(a5) # 0 <main>
-			b4: R_RISCV_LO12_I	led_op
-			b4: R_RISCV_RELAX	*ABS*
-  b8:	00379793          	sll	a5,a5,0x3
-  bc:	fef42423          	sw	a5,-24(s0)
-  c0:	000007b7          	lui	a5,0x0
-			c0: R_RISCV_HI20	buzzer
-			c0: R_RISCV_RELAX	*ABS*
-  c4:	0007a783          	lw	a5,0(a5) # 0 <main>
-			c4: R_RISCV_LO12_I	buzzer
-			c4: R_RISCV_RELAX	*ABS*
-  c8:	00479793          	sll	a5,a5,0x4
-  cc:	fef42223          	sw	a5,-28(s0)
-  d0:	fec42783          	lw	a5,-20(s0)
-  d4:	fe842703          	lw	a4,-24(s0)
-  d8:	fe442683          	lw	a3,-28(s0)
-  dc:	00ff6f33          	or	t5,t5,a5
-  e0:	00ef6f33          	or	t5,t5,a4
-  e4:	00df6f33          	or	t5,t5,a3
-  e8:	f71ff06f          	j	58 <.L6>
-			e8: R_RISCV_JAL	.L6
+00010174 <__muldf3>:
+   10174:	fe010113          	add	sp,sp,-32
+   10178:	00112e23          	sw	ra,28(sp)
+   1017c:	00812c23          	sw	s0,24(sp)
+   10180:	02010413          	add	s0,sp,32
+   10184:	fea42423          	sw	a0,-24(s0)
+   10188:	feb42623          	sw	a1,-20(s0)
+   1018c:	fec42023          	sw	a2,-32(s0)
+   10190:	fed42223          	sw	a3,-28(s0)
+   10194:	fe042603          	lw	a2,-32(s0)
+   10198:	fe442683          	lw	a3,-28(s0)
+   1019c:	fe842503          	lw	a0,-24(s0)
+   101a0:	fec42583          	lw	a1,-20(s0)
+   101a4:	fd1ff0ef          	jal	10174 <__muldf3>
+   101a8:	00050713          	mv	a4,a0
+   101ac:	00058793          	mv	a5,a1
+   101b0:	00070513          	mv	a0,a4
+   101b4:	00078593          	mv	a1,a5
+   101b8:	01c12083          	lw	ra,28(sp)
+   101bc:	01812403          	lw	s0,24(sp)
+   101c0:	02010113          	add	sp,sp,32
+   101c4:	00008067          	ret
 
-000000ec <.L5>:
-  ec:	00000097          	auipc	ra,0x0
-			ec: R_RISCV_CALL_PLT	read
-			ec: R_RISCV_RELAX	*ABS*
-  f0:	000080e7          	jalr	ra # ec <.L5>
+000101c8 <read>:
+   101c8:	fe010113          	add	sp,sp,-32
+   101cc:	00112e23          	sw	ra,28(sp)
+   101d0:	00812c23          	sw	s0,24(sp)
+   101d4:	02010413          	add	s0,sp,32
+   101d8:	002f7793          	and	a5,t5,2
+   101dc:	fef42623          	sw	a5,-20(s0)
+   101e0:	fec42783          	lw	a5,-20(s0)
+   101e4:	4017d713          	sra	a4,a5,0x1
+   101e8:	000117b7          	lui	a5,0x11
+   101ec:	4ee7a423          	sw	a4,1256(a5) # 114e8 <ir_sen_ip>
+   101f0:	000117b7          	lui	a5,0x11
+   101f4:	4e87a783          	lw	a5,1256(a5) # 114e8 <ir_sen_ip>
+   101f8:	00078513          	mv	a0,a5
+   101fc:	018000ef          	jal	10214 <operate>
+   10200:	00000013          	nop
+   10204:	01c12083          	lw	ra,28(sp)
+   10208:	01812403          	lw	s0,24(sp)
+   1020c:	02010113          	add	sp,sp,32
+   10210:	00008067          	ret
 
-000000f4 <.L4>:
-  f4:	000007b7          	lui	a5,0x0
-			f4: R_RISCV_HI20	led_op
-			f4: R_RISCV_RELAX	*ABS*
-  f8:	0007a783          	lw	a5,0(a5) # 0 <main>
-			f8: R_RISCV_LO12_I	led_op
-			f8: R_RISCV_RELAX	*ABS*
-  fc:	f4079ee3          	bnez	a5,58 <.L6>
-			fc: R_RISCV_BRANCH	.L6
- 100:	000007b7          	lui	a5,0x0
-			100: R_RISCV_HI20	buzzer
-			100: R_RISCV_RELAX	*ABS*
- 104:	0007a783          	lw	a5,0(a5) # 0 <main>
-			104: R_RISCV_LO12_I	buzzer
-			104: R_RISCV_RELAX	*ABS*
- 108:	f40798e3          	bnez	a5,58 <.L6>
-			108: R_RISCV_BRANCH	.L6
- 10c:	000007b7          	lui	a5,0x0
-			10c: R_RISCV_HI20	reset_button
-			10c: R_RISCV_RELAX	*ABS*
- 110:	0007a783          	lw	a5,0(a5) # 0 <main>
-			110: R_RISCV_LO12_I	reset_button
-			110: R_RISCV_RELAX	*ABS*
- 114:	fc078ce3          	beqz	a5,ec <.L5>
-			114: R_RISCV_BRANCH	.L5
- 118:	f41ff06f          	j	58 <.L6>
-			118: R_RISCV_JAL	.L6
+00010214 <operate>:
+   10214:	fd010113          	add	sp,sp,-48
+   10218:	02112623          	sw	ra,44(sp)
+   1021c:	02812423          	sw	s0,40(sp)
+   10220:	03010413          	add	s0,sp,48
+   10224:	fca42e23          	sw	a0,-36(s0)
+   10228:	fdc42783          	lw	a5,-36(s0)
+   1022c:	02078e63          	beqz	a5,10268 <operate+0x54>
+   10230:	000117b7          	lui	a5,0x11
+   10234:	00100713          	li	a4,1
+   10238:	4ee7a623          	sw	a4,1260(a5) # 114ec <solenoid_valve_op>
+   1023c:	000117b7          	lui	a5,0x11
+   10240:	4ec7a783          	lw	a5,1260(a5) # 114ec <solenoid_valve_op>
+   10244:	00279793          	sll	a5,a5,0x2
+   10248:	fef42623          	sw	a5,-20(s0)
+   1024c:	fec42783          	lw	a5,-20(s0)
+   10250:	00ff6f33          	or	t5,t5,a5
+   10254:	8141a783          	lw	a5,-2028(gp) # 114fc <counter_h>
+   10258:	00178713          	add	a4,a5,1
+   1025c:	80e1aa23          	sw	a4,-2028(gp) # 114fc <counter_h>
+   10260:	150000ef          	jal	103b0 <bottle_status>
+   10264:	0300006f          	j	10294 <operate+0x80>
+   10268:	000117b7          	lui	a5,0x11
+   1026c:	4e07a623          	sw	zero,1260(a5) # 114ec <solenoid_valve_op>
+   10270:	000117b7          	lui	a5,0x11
+   10274:	4ec7a783          	lw	a5,1260(a5) # 114ec <solenoid_valve_op>
+   10278:	00279793          	sll	a5,a5,0x2
+   1027c:	fef42623          	sw	a5,-20(s0)
+   10280:	fec42783          	lw	a5,-20(s0)
+   10284:	00ff6f33          	or	t5,t5,a5
+   10288:	8181a783          	lw	a5,-2024(gp) # 11500 <counter_l>
+   1028c:	00178713          	add	a4,a5,1
+   10290:	80e1ac23          	sw	a4,-2024(gp) # 11500 <counter_l>
+   10294:	00000013          	nop
+   10298:	02c12083          	lw	ra,44(sp)
+   1029c:	02812403          	lw	s0,40(sp)
+   102a0:	03010113          	add	sp,sp,48
+   102a4:	00008067          	ret
 
-0000011c <read>:
- 11c:	fe010113          	add	sp,sp,-32
- 120:	00112e23          	sw	ra,28(sp)
- 124:	00812c23          	sw	s0,24(sp)
- 128:	02010413          	add	s0,sp,32
- 12c:	002f7793          	and	a5,t5,2
- 130:	fef42623          	sw	a5,-20(s0)
- 134:	fec42783          	lw	a5,-20(s0)
- 138:	4017d713          	sra	a4,a5,0x1
- 13c:	000007b7          	lui	a5,0x0
-			13c: R_RISCV_HI20	ir_sen_ip
-			13c: R_RISCV_RELAX	*ABS*
- 140:	00e7a023          	sw	a4,0(a5) # 0 <main>
-			140: R_RISCV_LO12_S	ir_sen_ip
-			140: R_RISCV_RELAX	*ABS*
- 144:	000007b7          	lui	a5,0x0
-			144: R_RISCV_HI20	ir_sen_ip
-			144: R_RISCV_RELAX	*ABS*
- 148:	0007a783          	lw	a5,0(a5) # 0 <main>
-			148: R_RISCV_LO12_I	ir_sen_ip
-			148: R_RISCV_RELAX	*ABS*
- 14c:	00078513          	mv	a0,a5
- 150:	00000097          	auipc	ra,0x0
-			150: R_RISCV_CALL_PLT	operate
-			150: R_RISCV_RELAX	*ABS*
- 154:	000080e7          	jalr	ra # 150 <read+0x34>
- 158:	00000013          	nop
- 15c:	01c12083          	lw	ra,28(sp)
- 160:	01812403          	lw	s0,24(sp)
- 164:	02010113          	add	sp,sp,32
- 168:	00008067          	ret
+000102a8 <__divsi3>:
+   102a8:	fe010113          	add	sp,sp,-32
+   102ac:	00112e23          	sw	ra,28(sp)
+   102b0:	00812c23          	sw	s0,24(sp)
+   102b4:	02010413          	add	s0,sp,32
+   102b8:	fea42623          	sw	a0,-20(s0)
+   102bc:	feb42423          	sw	a1,-24(s0)
+   102c0:	fe842583          	lw	a1,-24(s0)
+   102c4:	fec42503          	lw	a0,-20(s0)
+   102c8:	fe1ff0ef          	jal	102a8 <__divsi3>
+   102cc:	00050793          	mv	a5,a0
+   102d0:	00078513          	mv	a0,a5
+   102d4:	01c12083          	lw	ra,28(sp)
+   102d8:	01812403          	lw	s0,24(sp)
+   102dc:	02010113          	add	sp,sp,32
+   102e0:	00008067          	ret
 
-0000016c <operate>:
- 16c:	fd010113          	add	sp,sp,-48
- 170:	02112623          	sw	ra,44(sp)
- 174:	02812423          	sw	s0,40(sp)
- 178:	03010413          	add	s0,sp,48
- 17c:	fca42e23          	sw	a0,-36(s0)
- 180:	fdc42783          	lw	a5,-36(s0)
- 184:	04078463          	beqz	a5,1cc <.L9>
-			184: R_RISCV_BRANCH	.L9
- 188:	000007b7          	lui	a5,0x0
-			188: R_RISCV_HI20	solenoid_valve_op
-			188: R_RISCV_RELAX	*ABS*
- 18c:	00100713          	li	a4,1
- 190:	00e7a023          	sw	a4,0(a5) # 0 <main>
-			190: R_RISCV_LO12_S	solenoid_valve_op
-			190: R_RISCV_RELAX	*ABS*
- 194:	000007b7          	lui	a5,0x0
-			194: R_RISCV_HI20	solenoid_valve_op
-			194: R_RISCV_RELAX	*ABS*
- 198:	0007a783          	lw	a5,0(a5) # 0 <main>
-			198: R_RISCV_LO12_I	solenoid_valve_op
-			198: R_RISCV_RELAX	*ABS*
- 19c:	00279793          	sll	a5,a5,0x2
- 1a0:	fef42623          	sw	a5,-20(s0)
- 1a4:	fec42783          	lw	a5,-20(s0)
- 1a8:	00ff6f33          	or	t5,t5,a5
- 1ac:	000007b7          	lui	a5,0x0
-			1ac: R_RISCV_HI20	counter_h
-			1ac: R_RISCV_RELAX	*ABS*
- 1b0:	0007a783          	lw	a5,0(a5) # 0 <main>
-			1b0: R_RISCV_LO12_I	counter_h
-			1b0: R_RISCV_RELAX	*ABS*
- 1b4:	00178713          	add	a4,a5,1
- 1b8:	000007b7          	lui	a5,0x0
-			1b8: R_RISCV_HI20	counter_h
-			1b8: R_RISCV_RELAX	*ABS*
- 1bc:	00e7a023          	sw	a4,0(a5) # 0 <main>
-			1bc: R_RISCV_LO12_S	counter_h
-			1bc: R_RISCV_RELAX	*ABS*
- 1c0:	00000097          	auipc	ra,0x0
-			1c0: R_RISCV_CALL_PLT	bottle_status
-			1c0: R_RISCV_RELAX	*ABS*
- 1c4:	000080e7          	jalr	ra # 1c0 <operate+0x54>
- 1c8:	0380006f          	j	200 <.L11>
-			1c8: R_RISCV_JAL	.L11
+000102e4 <__floatsidf>:
+   102e4:	fe010113          	add	sp,sp,-32
+   102e8:	00112e23          	sw	ra,28(sp)
+   102ec:	00812c23          	sw	s0,24(sp)
+   102f0:	02010413          	add	s0,sp,32
+   102f4:	fea42623          	sw	a0,-20(s0)
+   102f8:	fec42503          	lw	a0,-20(s0)
+   102fc:	fe9ff0ef          	jal	102e4 <__floatsidf>
+   10300:	00050713          	mv	a4,a0
+   10304:	00058793          	mv	a5,a1
+   10308:	00070513          	mv	a0,a4
+   1030c:	00078593          	mv	a1,a5
+   10310:	01c12083          	lw	ra,28(sp)
+   10314:	01812403          	lw	s0,24(sp)
+   10318:	02010113          	add	sp,sp,32
+   1031c:	00008067          	ret
 
-000001cc <.L9>:
- 1cc:	000007b7          	lui	a5,0x0
-			1cc: R_RISCV_HI20	solenoid_valve_op
-			1cc: R_RISCV_RELAX	*ABS*
- 1d0:	0007a023          	sw	zero,0(a5) # 0 <main>
-			1d0: R_RISCV_LO12_S	solenoid_valve_op
-			1d0: R_RISCV_RELAX	*ABS*
- 1d4:	000007b7          	lui	a5,0x0
-			1d4: R_RISCV_HI20	solenoid_valve_op
-			1d4: R_RISCV_RELAX	*ABS*
- 1d8:	0007a783          	lw	a5,0(a5) # 0 <main>
-			1d8: R_RISCV_LO12_I	solenoid_valve_op
-			1d8: R_RISCV_RELAX	*ABS*
- 1dc:	00279793          	sll	a5,a5,0x2
- 1e0:	fef42623          	sw	a5,-20(s0)
- 1e4:	fec42783          	lw	a5,-20(s0)
- 1e8:	00ff6f33          	or	t5,t5,a5
- 1ec:	000007b7          	lui	a5,0x0
-			1ec: R_RISCV_HI20	counter_l
-			1ec: R_RISCV_RELAX	*ABS*
- 1f0:	0007a783          	lw	a5,0(a5) # 0 <main>
-			1f0: R_RISCV_LO12_I	counter_l
-			1f0: R_RISCV_RELAX	*ABS*
- 1f4:	00178713          	add	a4,a5,1
- 1f8:	000007b7          	lui	a5,0x0
-			1f8: R_RISCV_HI20	counter_l
-			1f8: R_RISCV_RELAX	*ABS*
- 1fc:	00e7a023          	sw	a4,0(a5) # 0 <main>
-			1fc: R_RISCV_LO12_S	counter_l
-			1fc: R_RISCV_RELAX	*ABS*
+00010320 <__divdf3>:
+   10320:	fe010113          	add	sp,sp,-32
+   10324:	00112e23          	sw	ra,28(sp)
+   10328:	00812c23          	sw	s0,24(sp)
+   1032c:	02010413          	add	s0,sp,32
+   10330:	fea42423          	sw	a0,-24(s0)
+   10334:	feb42623          	sw	a1,-20(s0)
+   10338:	fec42023          	sw	a2,-32(s0)
+   1033c:	fed42223          	sw	a3,-28(s0)
+   10340:	fe042603          	lw	a2,-32(s0)
+   10344:	fe442683          	lw	a3,-28(s0)
+   10348:	fe842503          	lw	a0,-24(s0)
+   1034c:	fec42583          	lw	a1,-20(s0)
+   10350:	fd1ff0ef          	jal	10320 <__divdf3>
+   10354:	00050713          	mv	a4,a0
+   10358:	00058793          	mv	a5,a1
+   1035c:	00070513          	mv	a0,a4
+   10360:	00078593          	mv	a1,a5
+   10364:	01c12083          	lw	ra,28(sp)
+   10368:	01812403          	lw	s0,24(sp)
+   1036c:	02010113          	add	sp,sp,32
+   10370:	00008067          	ret
 
-00000200 <.L11>:
- 200:	00000013          	nop
- 204:	02c12083          	lw	ra,44(sp)
- 208:	02812403          	lw	s0,40(sp)
- 20c:	03010113          	add	sp,sp,48
- 210:	00008067          	ret
+00010374 <__fixdfsi>:
+   10374:	fe010113          	add	sp,sp,-32
+   10378:	00112e23          	sw	ra,28(sp)
+   1037c:	00812c23          	sw	s0,24(sp)
+   10380:	02010413          	add	s0,sp,32
+   10384:	fea42423          	sw	a0,-24(s0)
+   10388:	feb42623          	sw	a1,-20(s0)
+   1038c:	fe842503          	lw	a0,-24(s0)
+   10390:	fec42583          	lw	a1,-20(s0)
+   10394:	fe1ff0ef          	jal	10374 <__fixdfsi>
+   10398:	00050793          	mv	a5,a0
+   1039c:	00078513          	mv	a0,a5
+   103a0:	01c12083          	lw	ra,28(sp)
+   103a4:	01812403          	lw	s0,24(sp)
+   103a8:	02010113          	add	sp,sp,32
+   103ac:	00008067          	ret
 
-00000214 <bottle_status>:
- 214:	fd010113          	add	sp,sp,-48
- 218:	02112623          	sw	ra,44(sp)
- 21c:	02812423          	sw	s0,40(sp)
- 220:	03010413          	add	s0,sp,48
- 224:	000007b7          	lui	a5,0x0
-			224: R_RISCV_HI20	counter_h
-			224: R_RISCV_RELAX	*ABS*
- 228:	0007a703          	lw	a4,0(a5) # 0 <main>
-			228: R_RISCV_LO12_I	counter_h
-			228: R_RISCV_RELAX	*ABS*
- 22c:	000007b7          	lui	a5,0x0
-			22c: R_RISCV_HI20	counter_l
-			22c: R_RISCV_RELAX	*ABS*
- 230:	0007a783          	lw	a5,0(a5) # 0 <main>
-			230: R_RISCV_LO12_I	counter_l
-			230: R_RISCV_RELAX	*ABS*
- 234:	00f707b3          	add	a5,a4,a5
- 238:	fef42623          	sw	a5,-20(s0)
- 23c:	fec42783          	lw	a5,-20(s0)
- 240:	000f4737          	lui	a4,0xf4
- 244:	24070713          	add	a4,a4,576 # f4240 <.L14+0xf3ee4>
- 248:	40f757b3          	sra	a5,a4,a5
- 24c:	fef42423          	sw	a5,-24(s0)
- 250:	fe842503          	lw	a0,-24(s0)
- 254:	00000097          	auipc	ra,0x0
-			254: R_RISCV_CALL_PLT	__floatsidf
-			254: R_RISCV_RELAX	*ABS*
- 258:	000080e7          	jalr	ra # 254 <bottle_status+0x40>
- 25c:	00050713          	mv	a4,a0
- 260:	00058793          	mv	a5,a1
- 264:	000006b7          	lui	a3,0x0
-			264: R_RISCV_HI20	.LC0
-			264: R_RISCV_RELAX	*ABS*
- 268:	0006a603          	lw	a2,0(a3) # 0 <main>
-			268: R_RISCV_LO12_I	.LC0
-			268: R_RISCV_RELAX	*ABS*
- 26c:	0046a683          	lw	a3,4(a3)
-			26c: R_RISCV_LO12_I	.LC0+0x4
-			26c: R_RISCV_RELAX	*ABS*+0x4
- 270:	00070513          	mv	a0,a4
- 274:	00078593          	mv	a1,a5
- 278:	00000097          	auipc	ra,0x0
-			278: R_RISCV_CALL_PLT	__muldf3
-			278: R_RISCV_RELAX	*ABS*
- 27c:	000080e7          	jalr	ra # 278 <bottle_status+0x64>
- 280:	00050713          	mv	a4,a0
- 284:	00058793          	mv	a5,a1
- 288:	00070513          	mv	a0,a4
- 28c:	00078593          	mv	a1,a5
- 290:	00000097          	auipc	ra,0x0
-			290: R_RISCV_CALL_PLT	__fixdfsi
-			290: R_RISCV_RELAX	*ABS*
- 294:	000080e7          	jalr	ra # 290 <bottle_status+0x7c>
- 298:	00050793          	mv	a5,a0
- 29c:	fef42223          	sw	a5,-28(s0)
- 2a0:	fe442503          	lw	a0,-28(s0)
- 2a4:	00000097          	auipc	ra,0x0
-			2a4: R_RISCV_CALL_PLT	__floatsidf
-			2a4: R_RISCV_RELAX	*ABS*
- 2a8:	000080e7          	jalr	ra # 2a4 <bottle_status+0x90>
- 2ac:	00050713          	mv	a4,a0
- 2b0:	00058793          	mv	a5,a1
- 2b4:	000006b7          	lui	a3,0x0
-			2b4: R_RISCV_HI20	.LC1
-			2b4: R_RISCV_RELAX	*ABS*
- 2b8:	0006a603          	lw	a2,0(a3) # 0 <main>
-			2b8: R_RISCV_LO12_I	.LC1
-			2b8: R_RISCV_RELAX	*ABS*
- 2bc:	0046a683          	lw	a3,4(a3)
-			2bc: R_RISCV_LO12_I	.LC1+0x4
-			2bc: R_RISCV_RELAX	*ABS*+0x4
- 2c0:	00070513          	mv	a0,a4
- 2c4:	00078593          	mv	a1,a5
- 2c8:	00000097          	auipc	ra,0x0
-			2c8: R_RISCV_CALL_PLT	__muldf3
-			2c8: R_RISCV_RELAX	*ABS*
- 2cc:	000080e7          	jalr	ra # 2c8 <bottle_status+0xb4>
- 2d0:	00050713          	mv	a4,a0
- 2d4:	00058793          	mv	a5,a1
- 2d8:	00070513          	mv	a0,a4
- 2dc:	00078593          	mv	a1,a5
- 2e0:	00000097          	auipc	ra,0x0
-			2e0: R_RISCV_CALL_PLT	__fixdfsi
-			2e0: R_RISCV_RELAX	*ABS*
- 2e4:	000080e7          	jalr	ra # 2e0 <bottle_status+0xcc>
- 2e8:	00050793          	mv	a5,a0
- 2ec:	fef42023          	sw	a5,-32(s0)
- 2f0:	000007b7          	lui	a5,0x0
-			2f0: R_RISCV_HI20	water_used
-			2f0: R_RISCV_RELAX	*ABS*
- 2f4:	0007a703          	lw	a4,0(a5) # 0 <main>
-			2f4: R_RISCV_LO12_I	water_used
-			2f4: R_RISCV_RELAX	*ABS*
- 2f8:	fe042783          	lw	a5,-32(s0)
- 2fc:	00f70733          	add	a4,a4,a5
- 300:	000007b7          	lui	a5,0x0
-			300: R_RISCV_HI20	water_used
-			300: R_RISCV_RELAX	*ABS*
- 304:	00e7a023          	sw	a4,0(a5) # 0 <main>
-			304: R_RISCV_LO12_S	water_used
-			304: R_RISCV_RELAX	*ABS*
- 308:	fe042703          	lw	a4,-32(s0)
- 30c:	1f400793          	li	a5,500
- 310:	04f71663          	bne	a4,a5,35c <.L14>
-			310: R_RISCV_BRANCH	.L14
- 314:	000007b7          	lui	a5,0x0
-			314: R_RISCV_HI20	led_op
-			314: R_RISCV_RELAX	*ABS*
- 318:	00100713          	li	a4,1
- 31c:	00e7a023          	sw	a4,0(a5) # 0 <main>
-			31c: R_RISCV_LO12_S	led_op
-			31c: R_RISCV_RELAX	*ABS*
- 320:	000007b7          	lui	a5,0x0
-			320: R_RISCV_HI20	buzzer
-			320: R_RISCV_RELAX	*ABS*
- 324:	00100713          	li	a4,1
- 328:	00e7a023          	sw	a4,0(a5) # 0 <main>
-			328: R_RISCV_LO12_S	buzzer
-			328: R_RISCV_RELAX	*ABS*
- 32c:	000007b7          	lui	a5,0x0
-			32c: R_RISCV_HI20	led_op
-			32c: R_RISCV_RELAX	*ABS*
- 330:	0007a783          	lw	a5,0(a5) # 0 <main>
-			330: R_RISCV_LO12_I	led_op
-			330: R_RISCV_RELAX	*ABS*
- 334:	00379793          	sll	a5,a5,0x3
- 338:	fcf42e23          	sw	a5,-36(s0)
- 33c:	000007b7          	lui	a5,0x0
-			33c: R_RISCV_HI20	buzzer
-			33c: R_RISCV_RELAX	*ABS*
- 340:	0007a783          	lw	a5,0(a5) # 0 <main>
-			340: R_RISCV_LO12_I	buzzer
-			340: R_RISCV_RELAX	*ABS*
- 344:	00479793          	sll	a5,a5,0x4
- 348:	fcf42c23          	sw	a5,-40(s0)
- 34c:	fdc42783          	lw	a5,-36(s0)
- 350:	fd842703          	lw	a4,-40(s0)
- 354:	00ff6f33          	or	t5,t5,a5
- 358:	00ef6f33          	or	t5,t5,a4
+000103b0 <bottle_status>:
+   103b0:	fd010113          	add	sp,sp,-48
+   103b4:	02112623          	sw	ra,44(sp)
+   103b8:	02812423          	sw	s0,40(sp)
+   103bc:	03010413          	add	s0,sp,48
+   103c0:	8141a703          	lw	a4,-2028(gp) # 114fc <counter_h>
+   103c4:	8181a783          	lw	a5,-2024(gp) # 11500 <counter_l>
+   103c8:	00f707b3          	add	a5,a4,a5
+   103cc:	fef42623          	sw	a5,-20(s0)
+   103d0:	fec42783          	lw	a5,-20(s0)
+   103d4:	000f4737          	lui	a4,0xf4
+   103d8:	24070713          	add	a4,a4,576 # f4240 <__global_pointer$+0xe2558>
+   103dc:	40f757b3          	sra	a5,a4,a5
+   103e0:	fef42423          	sw	a5,-24(s0)
+   103e4:	fe842503          	lw	a0,-24(s0)
+   103e8:	efdff0ef          	jal	102e4 <__floatsidf>
+   103ec:	00050713          	mv	a4,a0
+   103f0:	00058793          	mv	a5,a1
+   103f4:	000106b7          	lui	a3,0x10
+   103f8:	4d86a603          	lw	a2,1240(a3) # 104d8 <bottle_status+0x128>
+   103fc:	4dc6a683          	lw	a3,1244(a3)
+   10400:	00070513          	mv	a0,a4
+   10404:	00078593          	mv	a1,a5
+   10408:	d6dff0ef          	jal	10174 <__muldf3>
+   1040c:	00050713          	mv	a4,a0
+   10410:	00058793          	mv	a5,a1
+   10414:	00070513          	mv	a0,a4
+   10418:	00078593          	mv	a1,a5
+   1041c:	f59ff0ef          	jal	10374 <__fixdfsi>
+   10420:	00050793          	mv	a5,a0
+   10424:	fef42223          	sw	a5,-28(s0)
+   10428:	fe442503          	lw	a0,-28(s0)
+   1042c:	eb9ff0ef          	jal	102e4 <__floatsidf>
+   10430:	00050713          	mv	a4,a0
+   10434:	00058793          	mv	a5,a1
+   10438:	000106b7          	lui	a3,0x10
+   1043c:	4e06a603          	lw	a2,1248(a3) # 104e0 <bottle_status+0x130>
+   10440:	4e46a683          	lw	a3,1252(a3)
+   10444:	00070513          	mv	a0,a4
+   10448:	00078593          	mv	a1,a5
+   1044c:	d29ff0ef          	jal	10174 <__muldf3>
+   10450:	00050713          	mv	a4,a0
+   10454:	00058793          	mv	a5,a1
+   10458:	00070513          	mv	a0,a4
+   1045c:	00078593          	mv	a1,a5
+   10460:	f15ff0ef          	jal	10374 <__fixdfsi>
+   10464:	00050793          	mv	a5,a0
+   10468:	fef42023          	sw	a5,-32(s0)
+   1046c:	8201a703          	lw	a4,-2016(gp) # 11508 <water_used>
+   10470:	fe042783          	lw	a5,-32(s0)
+   10474:	00f70733          	add	a4,a4,a5
+   10478:	82e1a023          	sw	a4,-2016(gp) # 11508 <water_used>
+   1047c:	fe042703          	lw	a4,-32(s0)
+   10480:	1f400793          	li	a5,500
+   10484:	02f71e63          	bne	a4,a5,104c0 <bottle_status+0x110>
+   10488:	00100713          	li	a4,1
+   1048c:	80e1a623          	sw	a4,-2036(gp) # 114f4 <led_op>
+   10490:	00100713          	li	a4,1
+   10494:	80e1a823          	sw	a4,-2032(gp) # 114f8 <buzzer>
+   10498:	80c1a783          	lw	a5,-2036(gp) # 114f4 <led_op>
+   1049c:	00379793          	sll	a5,a5,0x3
+   104a0:	fcf42e23          	sw	a5,-36(s0)
+   104a4:	8101a783          	lw	a5,-2032(gp) # 114f8 <buzzer>
+   104a8:	00479793          	sll	a5,a5,0x4
+   104ac:	fcf42c23          	sw	a5,-40(s0)
+   104b0:	fdc42783          	lw	a5,-36(s0)
+   104b4:	fd842703          	lw	a4,-40(s0)
+   104b8:	00ff6f33          	or	t5,t5,a5
+   104bc:	00ef6f33          	or	t5,t5,a4
+   104c0:	00000013          	nop
+   104c4:	02c12083          	lw	ra,44(sp)
+   104c8:	02812403          	lw	s0,40(sp)
+   104cc:	03010113          	add	sp,sp,48
+   104d0:	00008067          	ret
 
-0000035c <.L14>:
- 35c:	00000013          	nop
- 360:	02c12083          	lw	ra,44(sp)
- 364:	02812403          	lw	s0,40(sp)
- 368:	03010113          	add	sp,sp,48
- 36c:	00008067          	ret
