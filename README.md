@@ -175,6 +175,7 @@ Compile the c program using RISCV-V GNU Toolchain and dump the assembly code int
 ```
 riscv32-unkown-elf-gcc -c -march=rv32i -mabi=ilp32 -ffreestanding  -nostdlib -o ./out san_disp.c
 riscv32-unknown-elf-objdump -d  -r out > assembly.txt
+```
 
 ## Assembly Code
 ```
