@@ -168,6 +168,7 @@ void bottle_status()
 }
 ```
 ## GCC Compiler Working
+For the purpose of simulation, IR sensor input is explicitly set to 1 so that solenoid valve is always on until the bottle becomes empty.
 ![gcc](gcc_working.png)
 ## Assembly code conversion
 
