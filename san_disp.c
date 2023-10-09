@@ -1,11 +1,7 @@
 void read();
 void operate(int);
 void bottle_status();
-int __divsi3(int , int );
-double __floatsidf(int );
-double __divdf3(double , double );
-int __fixdfsi(double );
-double __muldf3(double , double);
+int division(int,int);
 
 int ir_sen_ip;
 int solenoid_valve_op = 0;
@@ -75,11 +71,6 @@ int main()
     return 0;
 }
 
-// Implementation for __muldf3
-double __muldf3(double a, double b) {
-    // Your implementation here
-    return a * b;
-}
 
 
 
@@ -132,34 +123,26 @@ void operate(int ir_value)
 
 }
 
-// Implementations for missing functions
-int __divsi3(int a, int b) {
-    // Your implementation here
-    return a / b;
-}
 
-double __floatsidf(int a) {
-    // Your implementation here
-    return (double)a;
-}
+int division(int dividend, int divisor) {
+    int quotient = 0;
+    
+   
+    while (dividend >= divisor) {
+        dividend -= divisor;
+        quotient++;
+    }
 
-double __divdf3(double a, double b) {
-    // Your implementation here
-    return a / b;
-}
-
-int __fixdfsi(double a) {
-    // Your implementation here
-    return (int)a;
+    return quotient;
 }
 
 
 void bottle_status()
 {
     int time = counter_h + counter_l;
-    int freq = 1000000>>time;
-    int water = freq*0.13;
-    int ls = water * 16.67;
+    int freq = division(1000000,time);
+    int water = freq;
+    int ls = water * 17;
     int led_reg;
     int buzzer_reg;
     water_used = water_used+ls;

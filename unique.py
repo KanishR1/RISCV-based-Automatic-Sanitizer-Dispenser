@@ -1,4 +1,4 @@
-with open('assembly_without_r_tag.txt', 'r') as file:
+with open('assembly.txt', 'r') as file:
     assembly_code = file.read()
 lines = assembly_code.split('\n')
 unique_instructions = set()
