@@ -159,8 +159,8 @@ return 0;
 Compile the c program using RISCV-V GNU Toolchain and dump the assembly code into water_level_assembly.txt using the below commands.
 
 ```
-riscv32-unkown-elf-gcc -march=rv32i -mabi=ilp32 -ffreestanding  -nostdlib -o ./output.o san_disp.c
-riscv32-unknown-elf-objdump -d  -r output.o > assembly.txt
+riscv64-unkown-elf-gcc -march=rv32i -mabi=ilp32 -ffreestanding  -nostdlib -o ./output.o san_disp.c
+riscv64-unknown-elf-objdump -d  -r output.o > assembly.txt
 ```
 
 ## Assembly Code
