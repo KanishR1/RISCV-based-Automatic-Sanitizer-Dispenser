@@ -8,6 +8,8 @@ int main()
     
     // Variable Declaration
     int ir_sen_ip_reg;
+    int mask1 = 0xFFFFFFE3;
+    int mask2 = 0xFFFFFFFB;
     int ir_sen_ip;//=1;//=1;
     int solenoid_valve_op=0; //= 1;
     int led_op = 0;
@@ -32,12 +34,12 @@ int main()
     
     // Intialize the registers 
     asm volatile(
-	"andi x30, x30, 0xFFFFFFE3\n\t"
+	"and x30, x30, %3\n\t"
 	"or x30, x30, %0\n\t"
 	"or x30, x30, %1\n\t"
 	"or x30, x30, %2\n\t" 
 	:
-	:"r"(solenoid_reg),"r"(led_reg),"r"(buzzer_reg)
+	:"r"(solenoid_reg),"r"(led_reg),"r"(buzzer_reg),"r"(mask1)
 	:"x30"
 	);
 
@@ -82,12 +84,12 @@ int main()
         led_reg = led_op*8;
         buzzer_reg = buzzer*16;
         asm volatile(
-        "andi x30, x30, 0xFFFFFFE3\n\t"
+        "and x30, x30, %3\n\t"
 	"or x30, x30,%0 \n\t"
 	"or x30, x30,%1 \n\t"
 	"or x30, x30,%2 \n\t" 
 	:
-	:"r"(solenoid_reg),"r"(led_reg),"r"(buzzer_reg)
+	:"r"(solenoid_reg),"r"(led_reg),"r"(buzzer_reg),"r"(mask1)
 	:"x30"
 	);
 	
@@ -148,10 +150,10 @@ int main()
         solenoid_valve_op = 1;
         solenoid_reg = solenoid_valve_op*4;
         asm volatile(
-	"andi x30, x30, 0xFFFFFFFB\n\t"
+	"and x30, x30, %1\n\t"
 	"or x30, x30,%0 \n\t"
 	:
-	:"r"(solenoid_reg)
+	:"r"(solenoid_reg),"r"(mask2)
 	:"x30"
 	);
         //digital_write(4,solenoid_valve_op);
@@ -184,12 +186,12 @@ int main()
         solenoid_reg = solenoid_valve_op*4;
         
         asm volatile(
-        "andi x30, x30, 0xFFFFFFE3\n\t"
+        "and x30, x30, %3\n\t"
 	"or x30, x30, %0\n\t"
 	"or x30, x30, %1\n\t" 
 	"or x30, x30, %2 \n\t"
 	:
-	:"r"(led_reg),	"r"(buzzer_reg), "r"(solenoid_reg) 
+	:"r"(led_reg),	"r"(buzzer_reg), "r"(solenoid_reg),"r"(mask1) 
 	:"x30"
 	);
         
@@ -203,10 +205,10 @@ int main()
         //digital_write(4,solenoid_valve_op);
         solenoid_reg = solenoid_valve_op*4;
         asm volatile(
-        "andi x30, x30, 0xFFFFFFFB\n\t"
+        "and x30, x30, %1\n\t"
 	"or x30, x30,%0 \n\t"
 	:
-	:"r"(solenoid_reg)
+	:"r"(solenoid_reg),"r"(mask2)
 	:"x30"
 	);
         counter_l++;
