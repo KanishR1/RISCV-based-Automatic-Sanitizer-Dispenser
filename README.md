@@ -651,6 +651,11 @@ return 0;
 
 3. When the input ir sensor signal is not received then all the output are zero which is shown below:
 ![in](./input_not_received.png)
+
+## Functional Simulation In GTKWave
+As explained in spike simulation, functional simulation is done in GTKWave and it's output waveform is shown below:
+![func](./func.png)
+
 ## Unique Instructions
 ```
 Number of different instructions: 17
