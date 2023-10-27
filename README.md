@@ -656,6 +656,27 @@ return 0;
 As explained in spike simulation, functional simulation is done in GTKWave and it's output waveform is shown below:
 ![func](./func.png)
 
+## Instruction Demonstration
+
+1. addi	sp,sp,-96
+
+Stack pointer is \$signal$45 register
+![addi](./addi.png)
+
+2. slli	a5,a5,0x2
+![slli](./slli.png)
+
+3. andi	t5,t5,-29
+![andi](./andi.png)
+
+4. or t5,t5,a5
+![or](./or.png)
+
+t5 is a temporary register corresponding to x30 register. In the core, it is \$signal.
+
+5. beqz a5,10128 <main+0xd4>
+![beqz](./beqz.png)
+
 ## Unique Instructions
 ```
 Number of different instructions: 17

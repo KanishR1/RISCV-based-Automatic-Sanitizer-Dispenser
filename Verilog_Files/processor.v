@@ -6417,7 +6417,7 @@ endmodule
     end
 
     reg [DATA_WIDTH-1:0]    mem [0:RAM_DEPTH-1];
-
+/*
     initial
     begin
 
@@ -6571,6 +6571,7 @@ endmodule
 	mem[147] = 32'hffffffff;
 
     end
+    */
 
     // Memory Write Block Port 0
     // Write Operation : When web0 = 0, csb0 = 0
@@ -7002,7 +7003,7 @@ endmodule
 
         if(rst==1)
         begin 
-            writing_inst_done=1;
+            writing_inst_done=0;
             write_inst_count=0;
             instruction=0;
             inst_byte_count=0;
