@@ -656,6 +656,10 @@ return 0;
 As explained in spike simulation, functional simulation is done in GTKWave and it's output waveform is shown below:
 ![func](./func.png)
 
+![out1](./out_1.png)
+
+![out1](./out_2.png)
+
 ## Instruction Demonstration
 
 1. addi	sp,sp,-96
