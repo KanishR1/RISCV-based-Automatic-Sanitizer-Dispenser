@@ -6342,7 +6342,7 @@ endmodule
 
 
 
-    module sky130_sram_2kbyte_1rw1r_32x256_8_inst(
+    module sky130_sram_1kbyte_1rw1r_32x256_8_inst(
     `ifdef USE_POWER_PINS
         vccd1,
         vssd1,
@@ -6608,7 +6608,7 @@ endmodule
     endmodule
 
 
-    module sky130_sram_2kbyte_1rw1r_32x256_8_data(
+    module sky130_sram_1kbyte_1rw1r_32x256_8_data(
     `ifdef USE_POWER_PINS
         vccd1,
         vssd1,
@@ -7091,7 +7091,7 @@ endmodule
 
 
     // (* blackbox *)
-    sky130_sram_2kbyte_1rw1r_32x256_8_inst inst_mem(
+    sky130_sram_1kbyte_1rw1r_32x256_8_inst inst_mem(
     .clk0(clk),// clock
     .csb0(temp_csb), // active low chip select
     .web0(temp_web), // active low write control
@@ -7109,7 +7109,7 @@ endmodule
 
     //data mem
     // (* blackbox *)
-    sky130_sram_2kbyte_1rw1r_32x256_8_data data_mem(
+    sky130_sram_1kbyte_1rw1r_32x256_8_data data_mem(
     .clk0(clk), // clock
     .csb0(csb_alu), // active low chip select
     .web0(web), // active low write control

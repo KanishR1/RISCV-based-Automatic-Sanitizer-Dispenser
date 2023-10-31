@@ -138,6 +138,8 @@ initial begin
   
 
     uart_rx_en = 1'b1;
+    
+    /*
 
     @(posedge slow_clk);write_instruction(32'h00000000); 
     @(posedge slow_clk);write_instruction(32'h00000000); 
@@ -287,6 +289,7 @@ initial begin
     @(posedge slow_clk);write_instruction(32'he2dff06f); 
     @(posedge slow_clk);write_instruction(32'hffffffff); 
     @(posedge slow_clk);write_instruction(32'hffffffff); 
+    */
 
      $display("Test Results:");
      $display("    PASSES: %d", passes);

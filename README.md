@@ -654,9 +654,15 @@ return 0;
 
 ## Functional Simulation In GTKWave
 As explained in spike simulation, functional simulation is done in GTKWave and it's output waveform is shown below:
+
 ![func](./func.png)
 
+
+The instruction 00ff6f33 corresponds to or	t5,t5,a5. The previous value of t5 is 0 which is ored with value of a5 to assert the output.
 ![out1](./out_1.png)
+
+The instruction fe3f7f13 corresponds to	andi t5,t5,-29 which clears the output bits t5 register i.e, x30 to change the value of the output.
+The next three instructions 00ff6f33, 00ef6f33 and 00df6f33 corresponds to 	or	t5,t5,a5,  or	t5,t5,a4, or	t5,t5,a3 which or's the new output value to output bits of x30 register.
 
 ![out1](./out_2.png)
 
@@ -665,9 +671,11 @@ As explained in spike simulation, functional simulation is done in GTKWave and i
 1. addi	sp,sp,-96
 
 Stack pointer is \$signal$45 register
+the default value of the stack pointer is ff and it is getting decrease by 96 which is 9F
 ![addi](./addi.png)
 
 2. slli	a5,a5,0x2
+
 ![slli](./slli.png)
 
 3. andi	t5,t5,-29
@@ -703,6 +711,34 @@ addi
 li
 lw
 ```
+
+## Gate Level Simulation
+GLS is generating the simulation output by running test bench with netlist file generated from synthesis as design under test. Netlist is logically same as RTL code, therefore, same test bench can be used for it.We perform this to verify logical correctness of the design after synthesizing it. Also ensuring the timing of the design is met. Folllowing are the commands to we need to convert Rtl code to netlist in yosys for that commands are :
+
+For simulation purpose in the processor assert the writing_inst_done = 1; 
+```
+read_liberty -lib sky130_fd_sc_hd__tt_025C_1v80_256.lib 
+read_verilog processor_gls.v # Change to processor_asic
+synth -top wrapper
+dfflibmap -liberty sky130_fd_sc_hd__tt_025C_1v80_256.lib 
+abc -liberty sky130_fd_sc_hd__tt_025C_1v80_256.lib
+write_verilog synth_processor_test.v
+```
+
+Folllowing are the commands to run the GLS simulation:
+
+```
+iverilog -o test synth_processor_test.v testbench.v sky130_sram_1kbyte_1rw1r_32x256_8.v sky130_fd_sc_hd.v primitives.v
+```
+Synthesized files ![Synthesized Verilog Files](./Verilog_Files)
+
+## GLS Outputs
+![gls_1](./gls_1.png)
+
+![gls_2](./gls_2.png)
+
+![show](./asic_show.png)
+
 ## Word of thanks
 I sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
 
