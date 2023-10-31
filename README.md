@@ -730,7 +730,7 @@ Folllowing are the commands to run the GLS simulation:
 ```
 iverilog -o test synth_processor_test.v testbench.v sky130_sram_1kbyte_1rw1r_32x256_8.v sky130_fd_sc_hd.v primitives.v
 ```
-Synthesized files ![Synthesized Verilog Files](./Verilog_Files)
+Synthesized files [Synthesized Verilog Files](./Verilog_Files)
 
 ## GLS Outputs
 ![gls_1](./gls_1.png)
