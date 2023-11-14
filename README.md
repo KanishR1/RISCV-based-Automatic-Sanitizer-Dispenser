@@ -739,6 +739,252 @@ Synthesized files [Synthesized Verilog Files](./Verilog_Files)
 
 ![show](./asic_show.png)
 
+## OpenLane Flow
+OpenLane is an automated RTL to GDSII flow based on several components including OpenROAD, Yosys, Magic, Netgen, CVC, SPEF-Extractor, CU-GR, Klayout and a number of custom scripts for design exploration and optimization. The flow performs full ASIC implementation steps from RTL all the way down to GDSII.
+
+To know more about Openlane  : https://github.com/The-OpenROAD-Project/OpenLane
+### Resolving the MAX_TRANSITION_TIME Issue
+Use the command below to resolve the max transition time error:
+```
+sed -i's/max_transition   :0.04/max_transition   :0.75'*/*.lib
+```
+To begin the openlane flow, the verilog design file and corresponding configuration must be imported in the openlane. To do that follow the commands given below:
+```
+make mount
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design kanish 
+```
+![Screenshot from 2023-11-14 22-27-23](https://github.com/KanishR1/RISCV_Automatic-Sanitizer-Dispenser/assets/88330171/136fb370-5e26-4d69-a296-d7ddcdf5c5af)
+
+Once the design is imported then design file has to be synthesized.To synthesize the code run the following command
+```
+run_synthesis
+```
+![Screenshot from 2023-11-14 22-27-47](https://github.com/KanishR1/RISCV_Automatic-Sanitizer-Dispenser/assets/88330171/94f5fcb2-c209-46d9-b26a-0ca7cc5e04f0)
+
+The synthesis results are shown below:
+
+**Area Report**
+
+```
+74. Printing statistics.
+
+=== wrapper ===
+
+   Number of wires:              16713
+   Number of wire bits:          16725
+   Number of public wires:       16713
+   Number of public wire bits:   16725
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              16593
+     sky130_fd_sc_hd__a2111o_2       5
+     sky130_fd_sc_hd__a211o_2        9
+     sky130_fd_sc_hd__a211oi_2       2
+     sky130_fd_sc_hd__a211oi_4       1
+     sky130_fd_sc_hd__a21bo_2        5
+     sky130_fd_sc_hd__a21bo_4        1
+     sky130_fd_sc_hd__a21boi_2       3
+     sky130_fd_sc_hd__a21boi_4       1
+     sky130_fd_sc_hd__a21o_2       105
+     sky130_fd_sc_hd__a21o_4         1
+     sky130_fd_sc_hd__a21oi_2      494
+     sky130_fd_sc_hd__a21oi_4      571
+     sky130_fd_sc_hd__a221o_2        1
+     sky130_fd_sc_hd__a221oi_2       1
+     sky130_fd_sc_hd__a22o_2       371
+     sky130_fd_sc_hd__a2bb2o_4       1
+     sky130_fd_sc_hd__a31o_2        24
+     sky130_fd_sc_hd__a31o_4         1
+     sky130_fd_sc_hd__a31oi_2        7
+     sky130_fd_sc_hd__a31oi_4        3
+     sky130_fd_sc_hd__a41o_2         2
+     sky130_fd_sc_hd__and2_2        69
+     sky130_fd_sc_hd__and2_4        21
+     sky130_fd_sc_hd__and2b_2       41
+     sky130_fd_sc_hd__and3_2       212
+     sky130_fd_sc_hd__and3_4         1
+     sky130_fd_sc_hd__and4_2         3
+     sky130_fd_sc_hd__and4b_2        3
+     sky130_fd_sc_hd__buf_1        353
+     sky130_fd_sc_hd__buf_12         9
+     sky130_fd_sc_hd__buf_2        714
+     sky130_fd_sc_hd__buf_4        163
+     sky130_fd_sc_hd__buf_6        141
+     sky130_fd_sc_hd__buf_8          6
+     sky130_fd_sc_hd__bufinv_8       3
+     sky130_fd_sc_hd__conb_1        37
+     sky130_fd_sc_hd__dfxtp_2     1281
+     sky130_fd_sc_hd__inv_2       2253
+     sky130_fd_sc_hd__inv_4         12
+     sky130_fd_sc_hd__inv_6          5
+     sky130_fd_sc_hd__inv_8          5
+     sky130_fd_sc_hd__mux2_1        13
+     sky130_fd_sc_hd__mux2_2       316
+     sky130_fd_sc_hd__nand2_2     5196
+     sky130_fd_sc_hd__nand2_4      109
+     sky130_fd_sc_hd__nand2_8        3
+     sky130_fd_sc_hd__nand2b_2       6
+     sky130_fd_sc_hd__nand2b_4       1
+     sky130_fd_sc_hd__nand3_2      664
+     sky130_fd_sc_hd__nand3_4        7
+     sky130_fd_sc_hd__nand3b_2      70
+     sky130_fd_sc_hd__nor2_2       977
+     sky130_fd_sc_hd__nor2_4        73
+     sky130_fd_sc_hd__nor2_8        54
+     sky130_fd_sc_hd__nor2b_2        6
+     sky130_fd_sc_hd__nor2b_4        1
+     sky130_fd_sc_hd__nor3_2        68
+     sky130_fd_sc_hd__nor3_4         5
+     sky130_fd_sc_hd__nor3b_2        1
+     sky130_fd_sc_hd__o2111ai_2      1
+     sky130_fd_sc_hd__o211a_2       82
+     sky130_fd_sc_hd__o211a_4       24
+     sky130_fd_sc_hd__o211ai_2      41
+     sky130_fd_sc_hd__o21a_2       111
+     sky130_fd_sc_hd__o21a_4        33
+     sky130_fd_sc_hd__o21ai_2      507
+     sky130_fd_sc_hd__o21ai_4        2
+     sky130_fd_sc_hd__o21bai_2      11
+     sky130_fd_sc_hd__o21bai_4       2
+     sky130_fd_sc_hd__o221a_2       14
+     sky130_fd_sc_hd__o221ai_2       9
+     sky130_fd_sc_hd__o22a_2        73
+     sky130_fd_sc_hd__o22ai_2      839
+     sky130_fd_sc_hd__o22ai_4        1
+     sky130_fd_sc_hd__o2bb2a_2       2
+     sky130_fd_sc_hd__o2bb2ai_2      1
+     sky130_fd_sc_hd__o311a_2        4
+     sky130_fd_sc_hd__o31a_2        28
+     sky130_fd_sc_hd__o31ai_2        2
+     sky130_fd_sc_hd__o32a_2         2
+     sky130_fd_sc_hd__or2_2        163
+     sky130_fd_sc_hd__or2_4         23
+     sky130_fd_sc_hd__or2b_2        30
+     sky130_fd_sc_hd__or3_2         14
+     sky130_fd_sc_hd__or3_4         10
+     sky130_fd_sc_hd__or3b_2         3
+     sky130_fd_sc_hd__or3b_4         2
+     sky130_fd_sc_hd__or4_2          5
+     sky130_fd_sc_hd__or4_4          3
+     sky130_fd_sc_hd__or4b_2         1
+     sky130_fd_sc_hd__or4b_4         1
+     sky130_fd_sc_hd__xnor2_2        9
+     sky130_fd_sc_hd__xor2_2        26
+     sky130_fd_sc_hd__xor2_4         1
+     sky130_sram_1kbyte_1rw1r_32x256_8      2
+
+   Chip area for module '\wrapper': 523480.092000
+```
+
+After Synthesis, floorplanning has to be done. To perform floorplan run the following command
+```
+run_floorplan
+```
+![Screenshot from 2023-11-14 22-28-49](https://github.com/KanishR1/RISCV_Automatic-Sanitizer-Dispenser/assets/88330171/6cae992e-0575-4510-8726-ae331d648120)
+
+
+Post the floorplan run, a .def file will have been created within the results/floorplan directory. To view the floorplan: Magic is invoked after moving to the results/floorplan directory,then use the following command:
+```
+magic -T /home/parallels/.volare/volare/sky130/versions/1341f54f5ce0c4955326297f235e4ace1eb6d419/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read wrapper.def &
+```
+
+The floor plan result is shown below:
+![282370256-f68bdef4-b968-44ed-9cda-b6ad9f45931f](https://github.com/KanishR1/RISCV_Automatic-Sanitizer-Dispenser/assets/88330171/cab320ef-8962-4d06-a74e-b28eca26d941)
+
+
+**Die and Core Area Post Floorplan**
+
+```
+Core Area - 5.52 10.88 1149.08 1153.28
+Die Area - 0.0 0.0 1155.025 1165.745
+```
+
+Once floorplan is done the standard cells has to be placed in the appropriate position. This step is called placement. To perform placement type the following command:
+```
+run_placement
+```
+
+
+![Screenshot from 2023-11-14 22-29-06](https://github.com/KanishR1/RISCV_Automatic-Sanitizer-Dispenser/assets/88330171/02aaa97f-227b-4e8f-b6ad-37add1424600)
+
+Post placement: the design can be viewed on magic within results/placement directory. Run the follwing command in that directory:
+
+```
+magic -T /home/parallels/.volare/volare/sky130/versions/1341f54f5ce0c4955326297f235e4ace1eb6d419/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.nom.lef def read wrapper.def &
+```
+
+![Screenshot from 2023-11-15 00-59-16](https://github.com/KanishR1/RISCV_Automatic-Sanitizer-Dispenser/assets/88330171/b02b38da-e99c-4d10-bc0e-f108fa308239)
+
+Once the cells are placed clock buffers has to be inserted and clock tree has to be constructed. To perform this type the following command:
+```
+run_cts
+```
+
+![Screenshot from 2023-11-14 22-29-46](https://github.com/KanishR1/RISCV_Automatic-Sanitizer-Dispenser/assets/88330171/470392a4-cc2c-4f65-895f-48c0d2f8b301)
+
+## Timing and Power Reports
+```
+===========================================================================
+ report_power
+============================================================================
+======================= Typical Corner ===================================
+
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             9.00e-04   2.67e-05   1.08e-08   9.27e-04  27.8%
+Combinational          1.65e-03   7.20e-04   3.81e-05   2.41e-03  72.2%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.55e-03   7.47e-04   3.81e-05   3.33e-03 100.0%
+                          76.5%      22.4%       1.1%
+
+power_report_end
+summary_report
+
+===========================================================================
+report_tns
+============================================================================
+tns 0.00
+
+===========================================================================
+report_wns
+============================================================================
+wns 0.00
+
+===========================================================================
+report_worst_slack -max (Setup)
+============================================================================
+worst slack 15.97
+
+===========================================================================
+report_worst_slack -min (Hold)
+============================================================================
+worst slack 0.15
+summary_report_end
+area_report
+
+===========================================================================
+report_design_area
+============================================================================
+Design area 513827 u^2 39% utilization.
+```
+
+Once CTS is over power distribution network has to be constructed to supply voltage to all the cells. To perform this use the following command
+```
+gen_pdn
+```
+
+
+
+
+
+
+
 ## Word of thanks
 I sciencerly thank Mr. Kunal Gosh(Founder/VSD) for helping me out to complete this flow smoothly.
 
