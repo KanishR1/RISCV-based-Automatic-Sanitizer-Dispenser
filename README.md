@@ -978,10 +978,173 @@ Once CTS is over power distribution network has to be constructed to supply volt
 ```
 gen_pdn
 ```
+## Routing 
+Once placement is done then routing has to be performed to connect all the cells. To perform this use the following command
+```
+run_routing
+```
+
+![Screenshot from 2023-11-14 22-30-43](https://github.com/KanishR1/RISCV_Automatic-Sanitizer-Dispenser/assets/88330171/6fff1a8a-ee28-4a05-8c72-d1a9f2714307)
+
+**Routing Results**
+![Screenshot from 2023-11-15 01-01-27](https://github.com/KanishR1/RISCV_Automatic-Sanitizer-Dispenser/assets/88330171/8b1860c9-7523-4357-bdf5-7165d223181c)
+
+```
 
 
+[INFO DRT-0195] Start 64th optimization iteration.
+    Completing 10% with 7 violations.
+    elapsed time = 00:00:00, memory = 1254.41 (MB).
+    Completing 20% with 7 violations.
+    elapsed time = 00:00:00, memory = 1254.41 (MB).
+    Completing 30% with 7 violations.
+    elapsed time = 00:00:00, memory = 1254.41 (MB).
+    Completing 40% with 7 violations.
+    elapsed time = 00:00:00, memory = 1254.41 (MB).
+    Completing 50% with 4 violations.
+    elapsed time = 00:00:00, memory = 1254.41 (MB).
+    Completing 60% with 3 violations.
+    elapsed time = 00:00:00, memory = 1254.41 (MB).
+    Completing 70% with 0 violations.
+    elapsed time = 00:00:00, memory = 1254.41 (MB).
+    Completing 80% with 0 violations.
+    elapsed time = 00:00:00, memory = 1254.41 (MB).
+    Completing 90% with 0 violations.
+    elapsed time = 00:00:00, memory = 1254.41 (MB).
+    Completing 100% with 0 violations.
+    elapsed time = 00:00:06, memory = 1254.41 (MB).
+[INFO DRT-0199]   Number of violations = 0.
+[INFO DRT-0267] cpu time = 00:00:06, elapsed time = 00:00:06, memory = 1254.41 (MB), peak = 2336.06 (MB)
+Total wire length = 747476 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 291066 um.
+Total wire length on LAYER met2 = 306544 um.
+Total wire length on LAYER met3 = 105213 um.
+Total wire length on LAYER met4 = 41933 um.
+Total wire length on LAYER met5 = 2718 um.
+Total number of vias = 140779.
+Up-via summary (total 140779):.
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1     69232
+           met1     65809
+           met2      4630
+           met3      1076
+           met4        32
+-------------------------
+                   140779
 
 
+[INFO DRT-0198] Complete detail routing.
+Total wire length = 747476 um.
+Total wire length on LAYER li1 = 0 um.
+Total wire length on LAYER met1 = 291066 um.
+Total wire length on LAYER met2 = 306544 um.
+Total wire length on LAYER met3 = 105213 um.
+Total wire length on LAYER met4 = 41933 um.
+Total wire length on LAYER met5 = 2718 um.
+Total number of vias = 140779.
+Up-via summary (total 140779):.
+
+-------------------------
+ FR_MASTERSLICE         0
+            li1     69232
+           met1     65809
+           met2      4630
+           met3      1076
+           met4        32
+-------------------------
+                   140779
+
+
+[INFO DRT-0267] cpu time = 00:30:06, elapsed time = 00:06:25, memory = 1254.41 (MB), peak = 2336.06 (MB)
+
+[INFO DRT-0180] Post processing.
+
+```
+
+**Post Routing Timing Area and Power Report**
+```
+===========================================================================
+ report_power
+============================================================================
+======================= Typical Corner ===================================
+
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             9.00e-04   2.17e-05   1.08e-08   9.21e-04  28.0%
+Combinational          1.65e-03   6.74e-04   3.81e-05   2.37e-03  72.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.55e-03   6.96e-04   3.81e-05   3.29e-03 100.0%
+                          77.7%      21.2%       1.2%
+
+power_report_end
+skew_report
+
+===========================================================================
+report_clock_skew
+============================================================================
+Clock clk
+Latency      CRPR       Skew
+top_inst.reg_file._17573_/CLK ^
+   0.89
+data_mem/clk0 ^
+   0.54      0.00       0.35
+
+skew_report_end
+summary_report
+
+===========================================================================
+report_tns
+============================================================================
+tns 0.00
+
+===========================================================================
+report_wns
+============================================================================
+wns 0.00
+
+===========================================================================
+report_worst_slack -max (Setup)
+============================================================================
+worst slack 16.39
+
+===========================================================================
+report_worst_slack -min (Hold)
+============================================================================
+worst slack 0.14
+summary_report_end
+area_report
+
+===========================================================================
+report_design_area
+============================================================================
+Design area 551049 u^2 42% utilization.
+```
+
+**Maximum Frequency** = 23 MHz
+## Overall Commands
+```
+cd Desktop/OpenLane/ 
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a
+run_synthesis
+run_floorplan
+run_placement
+run_cts
+gen_pdn
+run_routing
+run_magic
+run_magic_spice_export
+run_magic_drc
+run_antenna_check
+
+```
 
 
 
