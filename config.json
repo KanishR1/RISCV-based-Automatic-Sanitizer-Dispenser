@@ -1,0 +1,45 @@
+{
+    "DESIGN_NAME": "wrapper",
+    "VERILOG_FILES": "dir::src/processor.v",
+    "CLOCK_PORT": "clk",
+    "CLOCK_NET": "clk",
+    "GLB_RESIZER_TIMING_OPTIMIZATIONS": true,
+    "CLOCK_PERIOD": 60,
+    "FP_SIZING": "relative",
+    "PL_TARGET_DENSITY": 0.5,
+    "DIODE_PADDING" : 1, 
+    "SYNTH_NO_FLAT" : 1, 
+    "DESIGN_IS_CORE": 1,
+    "STA_REPORT_POWER":1,
+    "CTS_REPORT_TIMING":1,
+    "GENERATE_FINAL_SUMMARY_REPORT":1,
+    "SYNTH_STRATEGY" : "AREA 3", 
+    "GRT_MACRO_EXTENSION" : 0,
+    "PL_MACRO_HALO" : "550 450", 
+    "PL_MACRO_CHANNEL" : "150 150",
+    "RUN_HEURISTIC_DIODE_INSERTION" : 5, 
+    "MACRO_PLACEMENT_CFG": "dir::macro_placement.cfg",
+    "FP_PDN_ENABLE_RAILS" : 1,
+    "RT_MAX_LAYER" : "met5",
+    "ROUTING_CORES" : 8, 
+    "GRT_OVERFLOW_ITERS" : 150, 
+    "FP_PDN_CORE_RING" : 1 ,
+    "VDD_NETS": ["vccd1", "VPWR", "VPB"],
+    "GND_NETS": ["vssd1", "VGND", "VNB"],
+    "EXTRA_LEFS": "dir::src/sky130_sram_1kbyte_1rw1r_32x256_8.lef",
+    "EXTRA_GDS_FILES": "dir::src/sky130_sram_1kbyte_1rw1r_32x256_8.gds",
+    "EXTRA_LIBS": "dir::src/sky130_sram_1kbyte_1rw1r_32x256_8_TT_1p8V_25C.lib",
+    "pdk::sky130*": {
+        "FP_CORE_UTIL": 40,
+        "scl::sky130_fd_sc_hd": {
+            "FP_CORE_UTIL": 40
+        }
+    },
+    
+    "LIB_SYNTH": "dir::src/sky130_fd_sc_hd__tt_025C_1v80.lib",
+    "LIB_FASTEST": "dir::src/sky130_fd_sc_hd__ff_100C_1v65.lib",
+    "LIB_SLOWEST": "dir::src/sky130_fd_sc_hd__ss_100C_1v60.lib",
+    "LIB_TYPICAL": "dir::src/sky130_fd_sc_hd__tt_025C_1v80.lib"
+
+
+}
