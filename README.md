@@ -1,5 +1,5 @@
-# RISCV_Automatic-Sanitizer-Dispenser
-This github repository summarizes the progress made in the ASIC class for the riscv_project.
+# RISCV based Automatic Sanitizer Dispenser
+This GitHub repository summarizes the progress made in the ASIC class for the riscv_project.
 
 ## Aim
 The project's goal is to design an automatic sanitizer dispenser utilizing a specialized RISCV processor for bottle refill alerts and touch-free sanitizer distribution, with the objective of minimizing the machine's footprint, energy consumption, and overall expenses.
